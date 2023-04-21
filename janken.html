@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/sample.css">
+  <title>じゃんけん</title>
+</head>
+
+<body>
+  <header>
+    <h1>じゃんけん</h1>
+  </header>
+
+  <main>
+    <ul>
+      <li id="gu_btn">グー</li>
+      <li id="cho_btn">チョキ</li>
+      <li id="par_btn">パー</li>
+    </ul>
+    <div id="com_hand">コンピュータの出した手は？</div>
+    <div class="pcimg">
+      <p id="pcresult"></p>
+    </div>
+    <div id="result">結果は？</div>
+
+    <dl>
+      <dt> 勝ち</dt>
+      <dd id="result-countv">
+      </dd>
+      <dt> 負け</dt>
+      <dd id="result-countl">
+
+      </dd>
+
+      <dt>あいこ</dt>
+      <dd id="result-countd">
+
+      </dd>
+    </dl>
+  </main>
+
+  <footer>フッター</footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    //ここに処理を追加
+
+    let count_v = 0; //勝った数のカウント
+    let count_l = 0; //負けた数のカウント
+    let count_d = 0; //あいこのカウント
+
+
+    // グーの時
+    $("#gu_btn").on("click", function () {
+      const min = 0;
+      const max = 2;
+      const omikuzinumber = Math.floor(Math.random() * (max - min + 1));
+      console.log(omikuzinumber);
+
+      // グー＝０
+      // チョキ＝１
+      // パー＝２
+      if (omikuzinumber === 0) {
+        $("#pcresult").html('<img src=janken_gu.png alt="グー">');
+      } else if (omikuzinumber === 1) {
+        $("#pcresult").html('<img src=janken_choki.png alt="チョキ">');
+      } else {
+        $("#pcresult").html('<img src=janken_pa.png alt="パー">');
+      }
+
+
+      if (omikuzinumber === 0) {
+        $("#result").html("あいこ");
+        count_d++;
+      } else if (omikuzinumber === 1) {
+        $("#result").html("勝ち");
+        count_v++;
+      } else {
+        $("#result").html("負け");
+        count_l++;
+      }
+      $("#result-countv").html(count_v);
+      $("#result-countl").html(count_l);
+      $("#result-countd").html(count_d);
+
+    });
+    // チョキの時
+    $("#cho_btn").on("click", function () {
+      const min = 0;
+      const max = 2;
+      const omikuzinumber = Math.floor(Math.random() * (max - min + 1));
+      console.log(omikuzinumber);
+
+      // グー＝０
+      // チョキ＝１
+      // パー＝２
+      if (omikuzinumber === 0) {
+        $("#pcresult").html('<img src=janken_gu.png alt="グー">');
+      } else if (omikuzinumber === 1) {
+        $("#pcresult").html('<img src=janken_choki.png alt="チョキ">');
+      } else {
+        $("#pcresult").html('<img src=janken_pa.png alt="パー">');
+      }
+
+
+      if (omikuzinumber === 0) {
+        $("#result").html("負け");
+        count_l++;
+      } else if (omikuzinumber === 1) {
+        $("#result").html("あいこ");
+        count_d++;
+      } else {
+        $("#result").html("勝ち");
+        count_v++;
+      }
+      $("#result-countv").html(count_v);
+      $("#result-countl").html(count_l);
+      $("#result-countd").html(count_d);
+
+    });
+    // パーの時
+
+    $("#par_btn").on("click", function () {
+      const min = 0;
+      const max = 2;
+      const omikuzinumber = Math.floor(Math.random() * (max - min + 1));
+      console.log(omikuzinumber);
+
+      // グー＝０
+      // チョキ＝１
+      // パー＝２
+      if (omikuzinumber === 0) {
+        $("#pcresult").html('<img src=janken_gu.png alt="グー">');
+      } else if (omikuzinumber === 1) {
+        $("#pcresult").html('<img src=janken_choki.png alt="チョキ">');
+      } else {
+        $("#pcresult").html('<img src=janken_pa.png alt="パー">');
+      }
+
+
+      if (omikuzinumber === 0) {
+        $("#result").html("勝ち");
+        count_v++;
+      } else if (omikuzinumber === 1) {
+        $("#result").html("負け");
+        count_l++;
+      } else {
+        $("#result").html("あいこ");
+        count_d++;
+      }
+      $("#result-countv").html(count_v);
+      $("#result-countl").html(count_l);
+      $("#result-countd").html(count_d);
+
+    });
+    // $("#result-countv").html(count_v);
+    // $("#result-countl").html(count_l);
+    // $("#result-countd").html(count_d);
+
+
+  </script>
+
+</body>
+
+</html>
